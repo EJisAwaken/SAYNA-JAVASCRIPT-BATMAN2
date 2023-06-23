@@ -229,21 +229,69 @@ let btnSuivant = document.querySelector("#btn1");
 let nQuestion = document.querySelector(".debut-compteur");
 let totalQuestion = document.querySelector(".fin-compteur");
 let debut = document.querySelector("#btn-change");
-let image = document.querySelector(".img");
+let image = document.querySelector("#perso1");
 let original = document.querySelector(".first-img");
 let copie = document.querySelector(".ma-balise");
 let choix1 = document.querySelector(".rps1");
 let choix2 = document.querySelector(".rps2");
 let choix3 = document.querySelector(".rps3");
-let i=0,j;
+let i=0,j=0;
+let checkbox = document.querySelector(".cases");
 totalQuestion.innerText = questions.length;
 
+// Foncion permetant d'inserer le tableau
 function changeValue(){
     if (i<questions.length){
-        let element = questions[i].question;
-        let count = i+1;
+        let element = questions[i].question; // c'est le titre de chaque question
+        let count = i+1; // compteur de question : ex : 7/10
         nQuestion.innerText = count;
         sujet.innerText=element;
+        if(j<=questions[i].response.length){
+            let elem0 = questions[i].response[0].text;
+            let elem1 = questions[i].response[1].text;
+            let elem2 = questions[i].response[2].text;
+            choix1.innerText = elem0;
+            choix2.innerText = elem1;
+            choix3.innerText = elem2;
+        };
+
+        if (i===0){
+        }
+
+        else if (i===1){
+            image.src='../Images/game/Batgame_4.png';
+        }        else if (i===2){
+            image.src='../Images/game/Batgame_5.png';
+        }        else if (i===3){
+            image.src='../Images/game/Batgame_6.png';
+        }        else if (i===4){
+            image.src='../Images/game/Batgame_7.png';
+        }        else if (i===5){
+            image.src='../Images/game/Batgame_8.png';
+        }        else if (i===6){
+            image.src='../Images/game/Batgame_10.png';
+        }        else if (i===7){
+            image.src='../Images/game/Batgame_11.png';
+        }        else if (i===8){
+            image.src='../Images/game/Batgame_12.png';
+        }        else if (i===9){
+            image.src='../Images/game/Batgame_14.png';
+        }
+                else if (i===10){
+            image.src='../Images/game/Batgame_17.png';
+                        }
+                else if (i===11){
+            image.src='../Images/game/Batgame_18.png';
+                        }
+                else if (i===12){
+            image.src='../Images/game/Batgame_19.png';
+                        }
+                else if (i===13){
+            image.src='../Images/game/Batgame_20.png';
+                        }
+                else if (i===14){
+            image.src='../Images/game/Batgame_21.png';
+                        }
 
         i++;
 
@@ -251,21 +299,37 @@ function changeValue(){
         alert("Vous avez fait une erreur");
 
     return 0;
-}
+};
+
+// LA FONCTION CHECKBOX
+
+
 
 debut.addEventListener("click", function (){
     original.style.display ="none";
     copie.style.display ="block";
     window.location.href = "#c1";
-})
+});
+
+function check() {
+    for (let index = 0; index<=checkbox.length; index){
+        let boite = checkbox[index];
+        if (checkbox[index].checked){
+            alert("c'est fait")
+        }
+        else
+            alert("oups")
+    }
+    
+};
 
 
 debut.addEventListener("click", changeValue);
 btnSuivant.addEventListener("click", changeValue);
 
-
-
-
+checkbox.addEventListener("change", function () {
+    
+})
 
 
 
